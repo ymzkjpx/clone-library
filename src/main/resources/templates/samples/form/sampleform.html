@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main>
+    <h3>サンプルフォーム</h3>
+    <form method="get" action="#" th:action="@{/samples/form}">
+        <label>ユーザー登録</label>
+        <input type="text" placeholder="氏名" th:field="${keyword.value}">
+        <button>登録</button>
+    </form>
+
+    <div>
+        <p th:text="${keyword.value}">dummy</p>
+    </div>
+</main>
+</body>
+</html>
