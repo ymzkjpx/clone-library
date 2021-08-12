@@ -1,15 +1,14 @@
 package com.example.demo.domain.model.book;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class SearchKeyword {
+public class Keyword {
     String value;
 
-    public SearchKeyword(String value) {
+    public Keyword(String value) {
         this.value = value;
     }
 

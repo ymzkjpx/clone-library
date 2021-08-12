@@ -8,15 +8,33 @@
 <body>
 <main>
     <article>
-        <form method="get" action="#" th:action="@{/reservation/books/search}">
+        <form method="get" action="#" th:action="@{/reservation/entries/search}">
             <label>キーワード検索（空白で全件を検索します）</label>
-            <input class="input" type="text" placeholder="キーワード" th:field="${searchKeyword.value}">
+            <input class="input" type="text" placeholder="キーワード" th:field="${keyword.value}">
             <button>本を探す</button>
         </form>
     </article>
-    <div>
-        <p th:text="${searchKeyword.value}">dummy</p>
-    </div>
+    <article>
+        <h4>検索結果:
+            <span></span>
+        </h4>
+        <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th>資料</th>
+                <th>貸出</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><a class="button is-primary is-small" href="#"></a></td>
+                <td>describe</td>
+                <td>loan ability</td>
+            </tr>
+            </tbody>
+        </table>
+    </article>
 </main>
 </body>
 </html>
