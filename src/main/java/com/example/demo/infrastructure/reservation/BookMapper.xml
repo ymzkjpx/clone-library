@@ -5,14 +5,15 @@
 <mapper namespace="com.example.demo.infrastructure.reservation.BookMapper">
     <select id="search" resultType="com.example.demo.domain.model.book.Book">
         SELECT
-            書籍.本番号 as id
-          , 書籍.タイトル as title
-          , 書籍.著者 as author
+            書籍.本番号 AS ID
+          , 書籍.タイトル AS TITLE
+          , 書籍.著者 AS AUTHOR
         FROM
             蔵書.書籍
         WHERE
             書籍.タイトル || 書籍.著者 LIKE '%' || #{keyword.value} || '%'
         ORDER BY
             書籍.本番号
+            LIMIT #{limit}
     </select>
 </mapper>
