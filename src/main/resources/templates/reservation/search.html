@@ -15,10 +15,11 @@
         </form>
     </article>
     <article>
+        <block th:if="${books.isPresent()}">
         <h4>検索結果[冊]:
-            <span th:text="${books.size()}"></span>
+            <span th:text="${books.numberOfMaterial.show()}"></span>
         </h4>
-        <table th:if="${books.size() > 0}">
+        <table>
             <thead>
             <tr>
                 <th></th>
@@ -34,6 +35,7 @@
             </tr>
             </tbody>
         </table>
+        </block>
     </article>
 </main>
 </body>

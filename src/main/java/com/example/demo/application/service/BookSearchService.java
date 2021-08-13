@@ -1,7 +1,7 @@
 package com.example.demo.application.service;
 
 import com.example.demo.domain.model.book.Keyword;
-import com.example.demo.domain.reservation.reservation.Books;
+import com.example.demo.domain.model.book.Books;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

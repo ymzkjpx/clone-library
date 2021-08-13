@@ -1,6 +1,4 @@
-package com.example.demo.domain.reservation.reservation;
-
-import com.example.demo.domain.model.book.Book;
+package com.example.demo.domain.model.book;
 
 import java.util.List;
 
@@ -11,8 +9,16 @@ public class Books {
         this.list = list;
     }
 
+    public NumberOfBook numberOfMaterial(){
+        return new NumberOfBook(list.size());
+    }
+
     public int size(){
         return list.size();
+    }
+
+    public boolean isPresent(){
+        return size() > 0;
     }
 
     public List<Book> asList(){
