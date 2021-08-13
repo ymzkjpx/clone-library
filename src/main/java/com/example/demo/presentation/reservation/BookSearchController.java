@@ -23,8 +23,9 @@ public class BookSearchController {
     @GetMapping("search")
     String search(Model model, @ModelAttribute("keyword") Keyword keyword, BindingResult result) {
         System.out.println(keyword);
-        // TODO: 2021/08/12 検索結果に合致する書籍の一覧を取得する
         Books books = reservationScenario.search(keyword);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("books", books);
         return "reservation/search";
     }
 

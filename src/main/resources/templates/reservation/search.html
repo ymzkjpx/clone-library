@@ -15,10 +15,10 @@
         </form>
     </article>
     <article>
-        <h4>検索結果:
-            <span></span>
+        <h4>検索結果[冊]:
+            <span th:text="${books.size()}"></span>
         </h4>
-        <table>
+        <table th:if="${books.size() > 0}">
             <thead>
             <tr>
                 <th></th>
@@ -27,10 +27,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><a class="button is-primary is-small" href="#"></a></td>
-                <td>describe</td>
-                <td>loan ability</td>
+            <tr th:each="book : ${books.asList()}">
+                <td><a class="button is-primary is-small" href="#">予約する</a></td>
+                <td th:text="${book.title}">describe</td>
+                <td th:text="${book.author}">loan ability</td>
             </tr>
             </tbody>
         </table>

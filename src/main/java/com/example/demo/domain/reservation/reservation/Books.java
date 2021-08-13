@@ -14,4 +14,8 @@ public class Books {
     public int size(){
         return list.size();
     }
+
+    public List<Book> asList(){
+        return list;
+    }
 }
