@@ -23,15 +23,19 @@
             <thead>
             <tr>
                 <th></th>
-                <th>資料</th>
-                <th>貸出</th>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Stock</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="book : ${books.asList()}">
-                <td><a class="button is-primary is-small" href="#">予約する</a></td>
-                <td th:text="${book.title}">describe</td>
-                <td th:text="${book.author}">loan ability</td>
+                <td><a class="button is-primary is-small" href="#">Reserve</a></td>
+                <td th:text="${book.entry.id.value()}">Title</td>
+                <td th:text="${book.entry.title.value()}">Title</td>
+                <td th:text="${book.entry.author.value()}">Author</td>
+                <td th:text="${book.loanableItems.value()}">Stock</td>
             </tr>
             </tbody>
         </table>

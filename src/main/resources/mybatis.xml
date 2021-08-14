@@ -5,6 +5,6 @@
 <configuration>
     <settings>
         <setting name="returnInstanceForEmptyRow" value = "true"/>
-        <setting name="autoMappingUnknownColumnBehavior" value = "FAILING"/>
+        <setting name="autoMappingUnknownColumnBehavior" value = "NONE"/>
     </settings>
 </configuration>

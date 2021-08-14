@@ -1,4 +1,7 @@
-package com.example.demo.domain.model.book;
+package com.example.demo.domain.model.reservation;
+
+import com.example.demo.domain.model.book.Book;
+import com.example.demo.domain.model.book.NumberOfBook;
 
 import java.util.List;
 

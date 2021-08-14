@@ -5,15 +5,19 @@
 <mapper namespace="com.example.demo.infrastructure.reservation.BookMapper">
     <select id="search" resultType="com.example.demo.domain.model.book.Book">
         SELECT
-            書籍.本番号 AS ID
-          , 書籍.タイトル AS TITLE
-          , 書籍.著者 AS AUTHOR
+            st.資料番号 AS "entry.id.value"
+          , st.タイトル AS "entry.title.value"
+          , st.著者 AS "entry.author.value"
+          , COUNT(st.資料番号) AS "loanableItems.stock"
         FROM
-            蔵書.書籍
+            資料.図書 st
+                INNER JOIN 蔵書.蔵書 zz
+                    ON (st.資料番号 = zz.資料番号)
+                INNER JOIN 蔵書.貸出可能 zk
+                    ON (zz.蔵書番号 = zk.蔵書番号)
         WHERE
-            書籍.タイトル || 書籍.著者 LIKE '%' || #{keyword.value} || '%'
-        ORDER BY
-            書籍.本番号
-            LIMIT #{limit}
+            st.タイトル || st.著者 LIKE '%' || #{keyword.value} || '%'
+        GROUP BY
+            st.資料番号 LIMIT #{limit}
     </select>
 </mapper>

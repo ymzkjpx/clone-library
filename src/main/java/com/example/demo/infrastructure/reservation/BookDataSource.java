@@ -3,8 +3,8 @@ package com.example.demo.infrastructure.reservation;
 import com.example.demo.application.service.BookRepository;
 import com.example.demo.domain.model.book.Book;
 import com.example.demo.domain.model.book.Keyword;
-import com.example.demo.domain.model.book.Books;
 import com.example.demo.domain.model.book.NumberOfBook;
+import com.example.demo.domain.model.reservation.Books;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
