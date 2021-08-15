@@ -15,4 +15,8 @@ public class Entry {
     public Title title() {return title;}
 
     public Author author() {return author;}
+
+    public String showDescribe() {
+        return "Title: " + title() + " / Author: " + author();
+    }
 }

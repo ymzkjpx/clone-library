@@ -35,7 +35,7 @@
                 <td th:text="${book.entry.id.value()}">Title</td>
                 <td th:text="${book.entry.title.value()}">Title</td>
                 <td th:text="${book.entry.author.value()}">Author</td>
-                <td th:text="${book.loanableItems.value()}">Stock</td>
+                <td th:text="${book.showLoanability()}">Stock</td>
             </tr>
             </tbody>
         </table>
