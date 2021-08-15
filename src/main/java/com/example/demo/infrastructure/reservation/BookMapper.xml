@@ -18,6 +18,9 @@
         WHERE
             st.タイトル || st.著者 LIKE '%' || #{keyword.value} || '%'
         GROUP BY
-            st.資料番号 LIMIT #{limit}
+            st.資料番号
+        ORDER BY
+            st.資料番号
+        LIMIT #{limit}
     </select>
 </mapper>
