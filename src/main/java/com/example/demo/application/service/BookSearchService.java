@@ -11,6 +11,9 @@ public class BookSearchService {
     @Autowired
     BookRepository bookRepository;
 
+    /**
+     * 資料番号で本を見つける.
+     */
     public Books search(Keyword keyword){
         return bookRepository.search(keyword);
     }

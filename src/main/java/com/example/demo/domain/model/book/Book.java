@@ -2,9 +2,7 @@ package com.example.demo.domain.model.book;
 
 import com.example.demo.domain.model.reservation.LoanableItems;
 import com.example.demo.domain.model.reservation.Loanability;
-import lombok.Getter;
 
-@Getter
 public class Book {
 
     public Book() {}
@@ -24,8 +22,12 @@ public class Book {
         return Loanability.loanable(loanableItems.value());
     }
 
-    public Id Bookid() {
-        return entry.id();
+    public Entry entry(){
+        return entry;
+    }
+
+    public LoanableItems loanableItems(){
+        return loanableItems;
     }
 
     @Override
