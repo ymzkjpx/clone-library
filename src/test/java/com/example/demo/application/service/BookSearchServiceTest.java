@@ -20,7 +20,7 @@ class BookSearchServiceTest {
     void search() {
         Book book = bookSearchService.search(new Keyword("ハンドブック")).asList().get(0);
         assertAll(
-                ()->assertEquals(book.entry().id().value(), 6),
+                ()->assertEquals(book.entry().id().value(), 5),
                 ()->assertEquals(book.loanableItems().value(), 1)
         );
     }
