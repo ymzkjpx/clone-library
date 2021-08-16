@@ -25,7 +25,6 @@ public class BookSearchController {
 
     @GetMapping("search")
     String search(Model model, @ModelAttribute("keyword") Keyword keyword, BindingResult result) {
-        System.out.println(keyword);
         Books books = reservationScenario.search(keyword);
         model.addAttribute("keyword", keyword);
         model.addAttribute("books", books);
