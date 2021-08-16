@@ -12,6 +12,9 @@ public class ReservationScenario {
     @Autowired
     BookSearchService bookSearchService;
 
+    /**
+     * 本を見つける.
+     */
     public Books search(Keyword keyword){
         return bookSearchService.search(keyword);
     }
