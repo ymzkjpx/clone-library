@@ -181,3 +181,9 @@ VALUES
   , ('46-A')
   , ('47-A')
 ;
+
+-- Webで予約した
+INSERT INTO
+    予約.予約履歴(予約番号, 会員番号, 資料番号)
+VALUES
+    ((SELECT NEXTVAL('予約.予約番号')), 1, 4);

@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.infrastructure.reservation.BookMapper">
-    <select id="search" resultType="com.example.demo.domain.model.book.Book">
+    <select id="search" resultType="com.example.demo.domain.model.reservation.MaterialLoanability">
         SELECT
-            st.資料番号 AS "entry.id.value"
+            st.資料番号 AS "entry.entryNumber.value"
           , st.タイトル AS "entry.title.value"
           , st.著者 AS "entry.author.value"
           , COUNT(st.資料番号) AS "loanableItems.stock"
@@ -21,6 +21,28 @@
             st.資料番号
         ORDER BY
             st.資料番号
-        LIMIT #{limit}
+            LIMIT #{limit}
+    </select>
+
+    <select id="findByMaterial" resultType="com.example.demo.domain.model.book.Entry">
+        SELECT
+            st.資料番号 AS "entryNumber.value"
+          , st.タイトル AS "title.value"
+          , st.著者 AS "author.value"
+        FROM
+            資料.図書 st
+        WHERE
+            st.資料番号 = #{entryNumber.value}
+    </select>
+
+    <select id="nextNumber" resultType="int">
+        SELECT nextval('予約.予約番号');
+    </select>
+
+    <select id="register">
+        INSERT INTO
+            予約.予約履歴(予約番号, 会員番号, 資料番号)
+        VALUES
+            (#{nextNumber}, 1, #{entry.entryNumber.value})
     </select>
 </mapper>

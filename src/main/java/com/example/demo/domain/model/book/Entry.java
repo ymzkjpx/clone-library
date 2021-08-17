@@ -4,19 +4,20 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class Entry {
-    private Id id;
-    private Title title;
-    private Author author;
+    EntryNumber entryNumber;
+    Title title;
+    Author author;
 
+    @Deprecated
     public Entry() {}
 
-    public Id id() {return id;}
+    public EntryNumber entryNumber() {return entryNumber;}
 
     public Title title() {return title;}
 
     public Author author() {return author;}
 
     public String showDescribe() {
-        return "Title: " + title() + " / Author: " + author();
+        return "Title: " + title().value() + " / Author: " + author().value();
     }
 }
