@@ -5,6 +5,8 @@ import com.example.demo.domain.model.book.Entry;
 import com.example.demo.domain.model.book.EntryNumber;
 import com.example.demo.domain.model.book.Keyword;
 import com.example.demo.domain.model.reservation.MaterialLoanability;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,6 +19,7 @@ class BookSearchServiceTest {
     BookSearchService bookSearchService;
 
     @Test
+    @DisplayName("キーワードで本を検索できる")
     void search() {
         MaterialLoanability entry = bookSearchService.search(new Keyword("ハンドブック")).asList().get(0);
         assertAll(
@@ -26,6 +29,7 @@ class BookSearchServiceTest {
     }
 
     @Test
+    @DisplayName("資料番号で本を検索できる")
     void findByMaterial(){
         Entry entry = bookSearchService.findByMaterial(new EntryNumber(2));
         assertAll(
