@@ -1,4 +1,4 @@
-package com.example.demo.domain.model.reservation;
+package com.example.demo.domain.model.reservation.loan;
 
 import com.example.demo.domain.model.book.NumberOfBook;
 

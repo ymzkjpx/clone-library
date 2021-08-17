@@ -2,8 +2,8 @@ package com.example.demo.infrastructure.reservation;
 
 import com.example.demo.application.service.BookRepository;
 import com.example.demo.domain.model.book.*;
-import com.example.demo.domain.model.reservation.Books;
-import com.example.demo.domain.model.reservation.MaterialLoanability;
+import com.example.demo.domain.model.reservation.loan.Books;
+import com.example.demo.domain.model.reservation.loan.MaterialLoanability;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

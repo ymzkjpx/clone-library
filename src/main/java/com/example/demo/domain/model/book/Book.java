@@ -1,7 +1,7 @@
 package com.example.demo.domain.model.book;
 
-import com.example.demo.domain.model.reservation.LoanableItems;
-import com.example.demo.domain.model.reservation.Loanability;
+import com.example.demo.domain.model.reservation.loan.LoanableItems;
+import com.example.demo.domain.model.reservation.loan.Loanability;
 
 public class Book {
     Entry entry;

@@ -1,4 +1,4 @@
-package com.example.demo.domain.model.reservation;
+package com.example.demo.domain.model.reservation.loan;
 
 public class LoanableItems {
     private Integer stock;

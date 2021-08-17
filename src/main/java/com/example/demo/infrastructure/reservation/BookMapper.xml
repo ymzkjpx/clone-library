@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.infrastructure.reservation.BookMapper">
-    <select id="search" resultType="com.example.demo.domain.model.reservation.MaterialLoanability">
+    <select id="search" resultType="com.example.demo.domain.model.reservation.loan.MaterialLoanability">
         SELECT
             st.資料番号 AS "entry.entryNumber.value"
           , st.タイトル AS "entry.title.value"

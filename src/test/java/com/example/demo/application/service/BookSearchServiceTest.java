@@ -4,8 +4,8 @@ import com.example.demo.LibraryDBTest;
 import com.example.demo.domain.model.book.Entry;
 import com.example.demo.domain.model.book.EntryNumber;
 import com.example.demo.domain.model.book.Keyword;
-import com.example.demo.domain.model.reservation.MaterialLoanability;
-import org.junit.jupiter.api.Disabled;
+import com.example.demo.domain.model.reservation.loan.MaterialLoanability;
+import com.example.demo.infrastructure.reservation.BookMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +17,9 @@ class BookSearchServiceTest {
 
     @Autowired
     BookSearchService bookSearchService;
+
+    @Autowired
+    BookMapper bookMapper;
 
     @Test
     @DisplayName("キーワードで本を検索できる")
@@ -35,5 +38,12 @@ class BookSearchServiceTest {
         assertAll(
                 ()->assertEquals(entry.entryNumber().value(), 2)
         );
+    }
+
+    @Test
+    @DisplayName("資料の予約を申し込む")
+    void register(){
+        Entry entry = bookSearchService.findByMaterial(new EntryNumber(2));
+        bookSearchService.register(entry);
     }
 }

@@ -3,7 +3,7 @@ package com.example.demo.infrastructure.reservation;
 import com.example.demo.domain.model.book.Entry;
 import com.example.demo.domain.model.book.EntryNumber;
 import com.example.demo.domain.model.book.Keyword;
-import com.example.demo.domain.model.reservation.MaterialLoanability;
+import com.example.demo.domain.model.reservation.loan.MaterialLoanability;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
