@@ -4,6 +4,7 @@ import com.example.demo.application.scenario.ReservationScenario;
 import com.example.demo.domain.model.book.Entry;
 import com.example.demo.domain.model.book.EntryNumber;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,7 +30,14 @@ public class ReservationController {
     }
 
     @PostMapping
-    String register(@RequestParam("entry")EntryNumber entryNumber, Model model, BindingResult bindingResult){
-        reservationScenario.register(entryNumber);
+    String register(@ModelAttribute("entry")EntryNumber entryNumber, Model model, BindingResult bindingResult){
+        Entry entry = reservationScenario.findByMaterial(entryNumber);
+        reservationScenario.register(entry);
+        return "redirect:/reservation/register/completed";
+    }
+
+    @GetMapping("complated")
+    String complate(Model model){
+        return "reservation/complate";
     }
 }

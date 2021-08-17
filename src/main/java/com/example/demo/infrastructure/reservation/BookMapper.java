@@ -11,7 +11,11 @@ import java.util.List;
 
 @Mapper
 public interface BookMapper {
-    List<MaterialLoanability> search(@Param("keyword") Keyword keyword, @Param("limit")int limit);
+    List<MaterialLoanability> search(@Param("keyword") Keyword keyword, @Param("limit") int limit);
+
     Entry findByMaterial(@Param("entryNumber") EntryNumber entryNumber);
-    void register(EntryNumber entryNumber);
+
+    void register(@Param("nextNumber")int nextNumber, @Param("entry") Entry entry);
+
+    int nextNumber();
 }

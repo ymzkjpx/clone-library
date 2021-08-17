@@ -21,7 +21,7 @@
             st.資料番号
         ORDER BY
             st.資料番号
-        LIMIT #{limit}
+            LIMIT #{limit}
     </select>
 
     <select id="findByMaterial" resultType="com.example.demo.domain.model.book.Entry">
@@ -35,7 +35,14 @@
             st.資料番号 = #{entryNumber.value}
     </select>
 
-    <select id="register">
+    <select id="nextNumber" resultType="int">
+        SELECT nextval('予約.予約番号');
+    </select>
 
+    <select id="register">
+        INSERT INTO
+            予約.予約履歴(予約番号, 会員番号, 資料番号)
+        VALUES
+            (#{nextNumber}, 1, #{entry.entryNumber.value})
     </select>
 </mapper>

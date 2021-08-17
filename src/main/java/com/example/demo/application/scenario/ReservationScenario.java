@@ -31,7 +31,7 @@ public class ReservationScenario {
     /**
      * 資料の予約を申し込む
      */
-    public void register(EntryNumber entryNumber){
-        bookSearchService.register(entryNumber);
+    public void register(Entry entry){
+        bookSearchService.register(entry);
     }
 }

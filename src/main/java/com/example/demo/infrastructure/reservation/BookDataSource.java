@@ -27,9 +27,8 @@ public class BookDataSource implements BookRepository {
     }
 
     @Override
-    public void register(EntryNumber entryNumber){
-        bookMapper.register(entryNumber);
+    public void register(Entry entry){
+        int nextNumber = bookMapper.nextNumber();
+        bookMapper.register(nextNumber, entry);
     }
-
-
 }

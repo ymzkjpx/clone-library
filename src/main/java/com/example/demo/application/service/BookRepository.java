@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 public interface BookRepository {
     Books search(Keyword keyword);
     Entry findByMaterial(EntryNumber entryNumber);
-    void register(EntryNumber entryNumber);
+    void register(Entry entry);
 }

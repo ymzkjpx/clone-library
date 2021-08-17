@@ -11,7 +11,7 @@
 <main>
     <article>
         <h4 th:text="${book.showDescribe()}"></h4>
-        <form action="#" th:action="@{/reservation/register}" method="post">
+        <form action="#" th:action="@{/reservation/register}" method="post" name="body">
             <input type="hidden" name="entry" th:value="${book.entryNumber()}">
             <button>予約を申し込む</button>
         </form>

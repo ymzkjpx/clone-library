@@ -30,7 +30,7 @@ public class BookSearchService {
     /**
      * 資料の予約を申し込む
      */
-    public void register(EntryNumber entryNumber){
-        bookRepository.register(entryNumber);
+    public void register(Entry entry){
+        bookRepository.register(entry);
     }
 }
