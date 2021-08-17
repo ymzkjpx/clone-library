@@ -26,4 +26,11 @@ public class BookSearchService {
     public Entry findByMaterial(EntryNumber entryNumber){
         return bookRepository.findByMaterial(entryNumber);
     }
+
+    /**
+     * 資料の予約を申し込む
+     */
+    public void register(EntryNumber entryNumber){
+        bookRepository.register(entryNumber);
+    }
 }

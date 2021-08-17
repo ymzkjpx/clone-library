@@ -18,6 +18,6 @@ public class Entry {
     public Author author() {return author;}
 
     public String showDescribe() {
-        return "Title: " + title() + " / Author: " + author();
+        return "Title: " + title().value() + " / Author: " + author().value();
     }
 }

@@ -27,4 +27,11 @@ public class ReservationScenario {
     public Entry findByMaterial(EntryNumber entryNumber){
         return bookSearchService.findByMaterial(entryNumber);
     }
+
+    /**
+     * 資料の予約を申し込む
+     */
+    public void register(EntryNumber entryNumber){
+        bookSearchService.register(entryNumber);
+    }
 }

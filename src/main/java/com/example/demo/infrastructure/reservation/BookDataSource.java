@@ -26,4 +26,10 @@ public class BookDataSource implements BookRepository {
         return bookMapper.findByMaterial(entryNumber);
     }
 
+    @Override
+    public void register(EntryNumber entryNumber){
+        bookMapper.register(entryNumber);
+    }
+
+
 }

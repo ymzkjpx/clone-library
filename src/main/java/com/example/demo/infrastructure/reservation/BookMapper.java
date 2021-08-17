@@ -13,4 +13,5 @@ import java.util.List;
 public interface BookMapper {
     List<MaterialLoanability> search(@Param("keyword") Keyword keyword, @Param("limit")int limit);
     Entry findByMaterial(@Param("entryNumber") EntryNumber entryNumber);
+    void register(EntryNumber entryNumber);
 }

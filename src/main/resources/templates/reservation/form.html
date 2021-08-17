@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="https://www.thymeleaf.org/">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <head>
+        <th:block th:replace="_parts/head :: meta"/>
+        <title>予約フォーム</title>
+        <th:block th:replace="_parts/head :: css"/>
+    </head>
 </head>
 <body>
-<h2 th:text="${book}">area: book</h2>
+<main>
+    <article>
+        <h4 th:text="${book.showDescribe()}"></h4>
+        <form action="#" th:action="@{/reservation/register}" method="post">
+            <input type="hidden" name="entry" th:value="${book.entryNumber()}">
+            <button>予約を申し込む</button>
+        </form>
+    </article>
+</main>
 </body>
 </html>

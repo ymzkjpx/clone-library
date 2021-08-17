@@ -34,4 +34,8 @@
         WHERE
             st.資料番号 = #{entryNumber.value}
     </select>
+
+    <select id="register">
+
+    </select>
 </mapper>
