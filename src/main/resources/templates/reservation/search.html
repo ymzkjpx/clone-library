@@ -11,7 +11,8 @@
         <form method="get" action="#" th:action="@{/reservation/entries/search}" class="px-10">
             <label>キーワード検索</label>
             <div class="input-group row">
-                <input type="text" th:field="${keyword.value}" class="form-control col-5 px-2" placeholder="（空白で全件を検索します)" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <input type="text" th:field="${keyword.value}" class="form-control col-5 px-2"
+                       placeholder="（空白で全件を検索します)" aria-label="Recipient's username" aria-describedby="button-addon2">
                 <button class="btn btn-outline-primary col-2" type="button" id="button-addon2">検索</button>
             </div>
         </form>
@@ -37,7 +38,8 @@
                     <td th:text="${book.entry.title.value()}" class="col-5">Title</td>
                     <td th:text="${book.entry.author.value()}" class="col-3">Author</td>
                     <td th:text="${book.showLoanability()}" class="col-1 text-center">Stock</td>
-                    <td class="col-2 py-1"><a class="btn btn-outline-success btn-sm text-lg-end" href="#">Reserve</a></td>
+                    <td class="col-2 py-1"><a th:href="@{/reservation/register(book=${book.entry})}"
+                                              class="btn btn-outline-success btn-sm text-lg-end">Reserve</a></td>
                 </tr>
                 </tbody>
             </table>

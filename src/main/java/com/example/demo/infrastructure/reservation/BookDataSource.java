@@ -21,4 +21,10 @@ public class BookDataSource implements BookRepository {
         List<Book> books = bookMapper.search(keyword, NumberOfBook.MAX_TO_SHOW + 1);
         return new Books(books);
     }
+
+    @Override
+    public Book findByMaterial(Book entry){
+        return bookMapper.findByMaterial(entry);
+    }
+
 }

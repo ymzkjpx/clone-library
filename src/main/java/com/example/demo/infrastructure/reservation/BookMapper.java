@@ -10,4 +10,5 @@ import java.util.List;
 @Mapper
 public interface BookMapper {
     List<Book> search(@Param("keyword") Keyword keyword, @Param("limit")int limit);
+    Book findByMaterial(@Param("entry")Book entry);
 }
