@@ -12,6 +12,8 @@ public class EntryNumber {
     @Deprecated
     public EntryNumber() {}
 
+    public EntryNumber(int value){this.value = (Integer)value;}
+
     public EntryNumber(Integer value) {
         this.value = value;
     }

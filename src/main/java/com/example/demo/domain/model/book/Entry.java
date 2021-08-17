@@ -8,6 +8,7 @@ public class Entry {
     Title title;
     Author author;
 
+    @Deprecated
     public Entry() {}
 
     public EntryNumber entryNumber() {return entryNumber;}
