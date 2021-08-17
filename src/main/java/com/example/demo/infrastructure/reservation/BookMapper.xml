@@ -31,11 +31,7 @@
           , st.著者 AS "author.value"
         FROM
             資料.図書 st
-                INNER JOIN 蔵書.蔵書 zz ON
-                st.資料番号 = zz.資料番号
-                INNER JOIN 蔵書.貸出可能 zk ON
-                zz.蔵書番号 = zk.蔵書番号
         WHERE
-            zz.資料番号 = #{entryNumber.value}
+            st.資料番号 = #{entryNumber.value}
     </select>
 </mapper>
