@@ -1,7 +1,8 @@
 package com.example.demo.application.scenario;
 
 import com.example.demo.application.service.BookSearchService;
-import com.example.demo.domain.model.book.Book;
+import com.example.demo.domain.model.book.Entry;
+import com.example.demo.domain.model.book.EntryNumber;
 import com.example.demo.domain.model.book.Keyword;
 import com.example.demo.domain.model.reservation.Books;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class ReservationScenario {
     /**
      * 資料番号で本を見つける
      */
-    public Book findByMaterial(Book entry){
-        return bookSearchService.findByMaterial(entry);
+    public Entry findByMaterial(EntryNumber entryNumber){
+        return bookSearchService.findByMaterial(entryNumber);
     }
 }

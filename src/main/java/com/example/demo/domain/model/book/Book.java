@@ -4,11 +4,8 @@ import com.example.demo.domain.model.reservation.LoanableItems;
 import com.example.demo.domain.model.reservation.Loanability;
 
 public class Book {
-
-    public Book() {}
-
-    private Entry entry;
-    private LoanableItems loanableItems;
+    Entry entry;
+    LoanableItems loanableItems;
 
     public String describeBook() {
         return entry.showDescribe();
@@ -24,6 +21,10 @@ public class Book {
 
     public Entry entry(){
         return entry;
+    }
+
+    public EntryNumber entryNumber(){
+        return entry.entryNumber();
     }
 
     public LoanableItems loanableItems(){

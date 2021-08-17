@@ -4,13 +4,13 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class Entry {
-    private Id id;
-    private Title title;
-    private Author author;
+    EntryNumber entryNumber;
+    Title title;
+    Author author;
 
     public Entry() {}
 
-    public Id id() {return id;}
+    public EntryNumber entryNumber() {return entryNumber;}
 
     public Title title() {return title;}
 

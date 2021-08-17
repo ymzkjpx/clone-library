@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.infrastructure.reservation.BookMapper">
-    <select id="search" resultType="com.example.demo.domain.model.book.Book">
+    <select id="search" resultType="com.example.demo.domain.model.reservation.MaterialLoanability">
         SELECT
-            st.資料番号 AS "entry.id.value"
+            st.資料番号 AS "entry.entryNumber.value"
           , st.タイトル AS "entry.title.value"
           , st.著者 AS "entry.author.value"
           , COUNT(st.資料番号) AS "loanableItems.stock"
@@ -24,12 +24,11 @@
         LIMIT #{limit}
     </select>
 
-
     <select id="findByMaterial" resultType="com.example.demo.domain.model.book.Entry">
         SELECT
-            st.資料番号 AS id
-          , st.タイトル AS title
-          , st.著者 AS author
+            st.資料番号 AS "entryNumber.value"
+          , st.タイトル AS "title.value"
+          , st.著者 AS "author.value"
         FROM
             資料.図書 st
                 INNER JOIN 蔵書.蔵書 zz ON
@@ -37,6 +36,6 @@
                 INNER JOIN 蔵書.貸出可能 zk ON
                 zz.蔵書番号 = zk.蔵書番号
         WHERE
-            zz.資料番号 = #{entry}
+            zz.資料番号 = #{entryNumber.value}
     </select>
 </mapper>

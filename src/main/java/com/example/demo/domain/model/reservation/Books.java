@@ -1,14 +1,13 @@
 package com.example.demo.domain.model.reservation;
 
-import com.example.demo.domain.model.book.Book;
 import com.example.demo.domain.model.book.NumberOfBook;
 
 import java.util.List;
 
 public class Books {
-    List<Book> list;
+    List<MaterialLoanability> list;
 
-    public Books(List<Book> list){
+    public Books(List<MaterialLoanability> list){
         this.list = list;
     }
 
@@ -24,7 +23,7 @@ public class Books {
         return size() > 0;
     }
 
-    public List<Book> asList(){
+    public List<MaterialLoanability> asList(){
         return list;
     }
 }

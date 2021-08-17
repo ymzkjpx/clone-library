@@ -1,10 +1,9 @@
 package com.example.demo.infrastructure.reservation;
 
 import com.example.demo.application.service.BookRepository;
-import com.example.demo.domain.model.book.Book;
-import com.example.demo.domain.model.book.Keyword;
-import com.example.demo.domain.model.book.NumberOfBook;
+import com.example.demo.domain.model.book.*;
 import com.example.demo.domain.model.reservation.Books;
+import com.example.demo.domain.model.reservation.MaterialLoanability;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -18,13 +17,13 @@ public class BookDataSource implements BookRepository {
 
     @Override
     public Books search(Keyword keyword) {
-        List<Book> books = bookMapper.search(keyword, NumberOfBook.MAX_TO_SHOW + 1);
+        List<MaterialLoanability> books = bookMapper.search(keyword, NumberOfBook.MAX_TO_SHOW + 1);
         return new Books(books);
     }
 
     @Override
-    public Book findByMaterial(Book entry){
-        return bookMapper.findByMaterial(entry);
+    public Entry findByMaterial(EntryNumber entryNumber){
+        return bookMapper.findByMaterial(entryNumber);
     }
 
 }
