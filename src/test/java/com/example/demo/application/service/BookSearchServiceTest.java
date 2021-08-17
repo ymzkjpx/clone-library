@@ -1,6 +1,8 @@
 package com.example.demo.application.service;
 
 import com.example.demo.LibraryDBTest;
+import com.example.demo.domain.model.book.Entry;
+import com.example.demo.domain.model.book.EntryNumber;
 import com.example.demo.domain.model.book.Keyword;
 import com.example.demo.domain.model.reservation.MaterialLoanability;
 import org.junit.jupiter.api.Test;
@@ -20,6 +22,14 @@ class BookSearchServiceTest {
         assertAll(
                 ()->assertEquals(entry.entryNumber().value(), 6),
                 ()->assertEquals(entry.showLoanability().show(), "◯")
+        );
+    }
+
+    @Test
+    void findByMaterial(){
+        Entry entry = bookSearchService.findByMaterial(new EntryNumber(2));
+        assertAll(
+                ()->assertEquals(entry.entryNumber().value(), 2)
         );
     }
 }
