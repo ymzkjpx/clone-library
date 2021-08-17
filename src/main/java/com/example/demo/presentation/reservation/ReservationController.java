@@ -22,6 +22,8 @@ public class ReservationController {
 
     @GetMapping(params = {"entry"})
     String register(@ModelAttribute("entry")Book entry, Model model, BindingResult bindingResult){
-        reservationScenario.findByMaterial(entry);
+        Book book = reservationScenario.findByMaterial(entry);
+        model.addAttribute("book", book);
+        return "reservation/form";
     }
 }

@@ -23,6 +23,6 @@ public class BookSearchService {
      * 資料番号で本を見つける.
      */
     public Book findByMaterial(Book entry){
-        bookRepository.findByMaterial(entry);
+        return bookRepository.findByMaterial(entry);
     }
 }

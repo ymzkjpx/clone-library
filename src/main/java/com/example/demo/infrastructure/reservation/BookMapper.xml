@@ -30,7 +30,6 @@
             st.資料番号 AS id
           , st.タイトル AS title
           , st.著者 AS author
-          , zz.蔵書番号
         FROM
             資料.図書 st
                 INNER JOIN 蔵書.蔵書 zz ON
