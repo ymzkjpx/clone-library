@@ -1,10 +1,15 @@
 package com.example.demo.application.service;
 
 import com.example.demo.LibraryDBTest;
+import com.example.demo.application.service.member.MemberQueryService;
+import com.example.demo.application.service.reservation.ReservationQueryService;
+import com.example.demo.application.service.reservation.ReservationRecordService;
 import com.example.demo.domain.model.material.Entry;
 import com.example.demo.domain.model.material.EntryNumber;
+import com.example.demo.domain.model.member.Member;
+import com.example.demo.domain.model.member.MemberNumber;
+import com.example.demo.domain.model.member.Name;
 import com.example.demo.domain.model.reservation.reservation.Reservation;
-import com.example.demo.domain.model.reservation.reservation.ReservationNumber;
 import com.example.demo.infrastructure.reservation.BookMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -24,6 +29,9 @@ class ReservationRecordServiceTest {
     ReservationRecordService reservationRecordService;
 
     @Autowired
+    MemberQueryService memberQueryService;
+
+    @Autowired
     BookMapper bookMapper;
 
 
@@ -31,7 +39,8 @@ class ReservationRecordServiceTest {
     @DisplayName("資料の予約を申し込む")
     void register(){
         Entry entry1 = reservationQueryService.findByMaterial(new EntryNumber(2));
-        Reservation reservation1 = Reservation.of(1, entry1);
+        Member member = memberQueryService.search(new MemberNumber(1));
+        Reservation reservation1 = Reservation.of(member, entry1);
         reservationRecordService.register(reservation1);
         List<Reservation> reservations = bookMapper.findAll(entry1.entryNumber());
         Reservation reservation = reservations.get(1);

@@ -1,10 +1,13 @@
 package com.example.demo.application.scenario;
 
-import com.example.demo.application.service.ReservationQueryService;
-import com.example.demo.application.service.ReservationRecordService;
+import com.example.demo.application.service.member.MemberQueryService;
+import com.example.demo.application.service.reservation.ReservationQueryService;
+import com.example.demo.application.service.reservation.ReservationRecordService;
 import com.example.demo.domain.model.material.Entry;
 import com.example.demo.domain.model.material.EntryNumber;
 import com.example.demo.domain.model.material.Keyword;
+import com.example.demo.domain.model.member.Member;
+import com.example.demo.domain.model.member.MemberNumber;
 import com.example.demo.domain.model.reservation.loan.Books;
 import com.example.demo.domain.model.reservation.reservation.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,9 @@ public class ReservationScenario {
 
     @Autowired
     ReservationRecordService reservationRecordService;
+
+    @Autowired
+    MemberQueryService memberQueryService;
 
     /**
      * キーワードで本を見つける.
@@ -36,8 +42,9 @@ public class ReservationScenario {
     /**
      * 資料の予約を申し込む
      */
-    public void register(Entry entry){
-        Reservation reservation = Reservation.of(1, entry);
+    public void register(MemberNumber memberNumber, Entry entry){
+        Member member = memberQueryService.search(memberNumber);
+        Reservation reservation = Reservation.of(member, entry);
         reservationRecordService.register(reservation);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.demo.application.service;
+package com.example.demo.application.service.reservation;
 
 import com.example.demo.domain.model.material.Entry;
 import com.example.demo.domain.model.material.EntryNumber;

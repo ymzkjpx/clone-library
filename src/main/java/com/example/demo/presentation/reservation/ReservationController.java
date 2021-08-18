@@ -32,7 +32,7 @@ public class ReservationController {
     @PostMapping
     String register(@ModelAttribute("entry") EntryNumber entryNumber, Model model, BindingResult bindingResult, RedirectAttributes attributes) {
         Entry entry = reservationScenario.findByMaterial(entryNumber);
-        reservationScenario.register(entry);
+        reservationScenario.register( entry);
         attributes.addFlashAttribute("entry", entry);
         return "redirect:/reservation/register/completed";
     }

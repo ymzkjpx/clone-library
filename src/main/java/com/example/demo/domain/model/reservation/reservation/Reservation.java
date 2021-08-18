@@ -1,19 +1,19 @@
 package com.example.demo.domain.model.reservation.reservation;
 
 import com.example.demo.domain.model.material.Entry;
-import lombok.AllArgsConstructor;
+import com.example.demo.domain.model.member.Member;
 
 /**
  * 予約履歴
  */
 public class Reservation {
     ReservationNumber reservationNumber;
-    Integer member;
+    Member member;
     Entry entry;
 
     public Reservation(){}
 
-    private Reservation(ReservationNumber reservationNumber, Integer member, Entry entry){
+    private Reservation(ReservationNumber reservationNumber, Member member, Entry entry){
         this.reservationNumber = reservationNumber;
         this.member = member;
         this.entry = entry;
@@ -21,12 +21,12 @@ public class Reservation {
 
     public ReservationNumber reservationNumber() {return reservationNumber;}
 
-    public Integer member() {return member;}
+    public Member member() {return member;}
 
     public Entry entry() {return entry;}
 
-    public static Reservation of(int member, Entry entry){
-        return new Reservation(ReservationNumber.generate(), 1, entry);
+    public static Reservation of(Member member, Entry entry){
+        return new Reservation(ReservationNumber.generate(), member, entry);
     }
 
     @Override

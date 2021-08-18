@@ -1,6 +1,6 @@
 package com.example.demo.infrastructure.reservation;
 
-import com.example.demo.application.service.BookRepository;
+import com.example.demo.application.service.reservation.BookRepository;
 import com.example.demo.domain.model.material.*;
 import com.example.demo.domain.model.reservation.loan.Books;
 import com.example.demo.domain.model.reservation.loan.MaterialLoanability;

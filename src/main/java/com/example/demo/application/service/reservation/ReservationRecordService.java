@@ -1,6 +1,5 @@
-package com.example.demo.application.service;
+package com.example.demo.application.service.reservation;
 
-import com.example.demo.domain.model.material.Entry;
 import com.example.demo.domain.model.reservation.reservation.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
