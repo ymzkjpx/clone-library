@@ -36,7 +36,7 @@
     </select>
 
     <select id="nextNumber" resultType="int">
-        SELECT nextval('予約.予約番号');
+        SELECT NEXTVAL('予約.予約番号');
     </select>
 
     <select id="register">
@@ -44,5 +44,14 @@
             予約.予約履歴(予約番号, 会員番号, 資料番号)
         VALUES
             (#{nextNumber}, 1, #{entry.entryNumber.value})
+    </select>
+
+    <select id="findAll" resultType="com.example.demo.domain.model.reservation.reservation.Reservation">
+        SELECT
+            yy.予約番号 AS "reservationNumber"
+          , yy.会員番号 AS "member"
+          , yy.資料番号 AS "entry.entryNumber.value"
+        FROM
+            予約.予約履歴 yy
     </select>
 </mapper>

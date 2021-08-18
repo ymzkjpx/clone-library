@@ -4,6 +4,7 @@ import com.example.demo.domain.model.book.Entry;
 import com.example.demo.domain.model.book.EntryNumber;
 import com.example.demo.domain.model.book.Keyword;
 import com.example.demo.domain.model.reservation.loan.MaterialLoanability;
+import com.example.demo.domain.model.reservation.reservation.Reservation;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -18,4 +19,6 @@ public interface BookMapper {
     void register(@Param("nextNumber")int nextNumber, @Param("entry") Entry entry);
 
     int nextNumber();
+
+    List<Reservation> findAll(EntryNumber entryNumber);
 }
