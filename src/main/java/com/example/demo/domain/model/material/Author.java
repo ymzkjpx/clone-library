@@ -1,14 +1,16 @@
-package com.example.demo.domain.model.book;
+package com.example.demo.domain.model.material;
 
 public class Author {
     String value;
 
-    public Author(){
+    public Author() {
     }
-    public Author(String value){
+
+    public Author(String value) {
         this.value = value;
     }
-    public String value(){
+
+    public String value() {
         return value;
     }
 

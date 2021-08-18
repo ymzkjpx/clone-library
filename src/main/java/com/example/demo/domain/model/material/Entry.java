@@ -1,6 +1,8 @@
-package com.example.demo.domain.model.book;
+package com.example.demo.domain.model.material;
 
 import lombok.AllArgsConstructor;
+
+import java.util.Objects;
 
 @AllArgsConstructor
 public class Entry {
@@ -19,5 +21,9 @@ public class Entry {
 
     public String showDescribe() {
         return "Title: " + title().value() + " / Author: " + author().value();
+    }
+
+    public boolean isPresent() {
+        return !Objects.isNull(entryNumber);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.demo.domain.model.reservation;
+package com.example.demo.domain.model.reservation.loan;
 
 public enum Loanability {
     貸出可能("◯"), 貸出不可("✕");

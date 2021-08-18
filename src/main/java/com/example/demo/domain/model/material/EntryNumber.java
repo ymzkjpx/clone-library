@@ -1,4 +1,4 @@
-package com.example.demo.domain.model.book;
+package com.example.demo.domain.model.material;
 
 /**
  * 資料番号

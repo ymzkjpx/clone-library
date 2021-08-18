@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.infrastructure.reservation.BookMapper">
-    <select id="search" resultType="com.example.demo.domain.model.reservation.MaterialLoanability">
+    <select id="search" resultType="com.example.demo.domain.model.reservation.loan.MaterialLoanability">
         SELECT
             st.資料番号 AS "entry.entryNumber.value"
           , st.タイトル AS "entry.title.value"
@@ -24,7 +24,7 @@
             LIMIT #{limit}
     </select>
 
-    <select id="findByMaterial" resultType="com.example.demo.domain.model.book.Entry">
+    <select id="findByMaterial" resultType="com.example.demo.domain.model.material.Entry">
         SELECT
             st.資料番号 AS "entryNumber.value"
           , st.タイトル AS "title.value"
@@ -35,14 +35,29 @@
             st.資料番号 = #{entryNumber.value}
     </select>
 
-    <select id="nextNumber" resultType="int">
-        SELECT nextval('予約.予約番号');
-    </select>
-
     <select id="register">
         INSERT INTO
             予約.予約履歴(予約番号, 会員番号, 資料番号)
         VALUES
-            (#{nextNumber}, 1, #{entry.entryNumber.value})
+            (#{reservationNumber.value}, 1, #{entryNumber.value})
+    </select>
+
+    <insert id="insert未準備">
+        INSERT INTO
+            予約.未準備(予約番号)
+        VALUES
+            (#{reservationNumber.value})
+    </insert>
+
+
+    <select id="findAll" resultType="com.example.demo.domain.model.reservation.reservation.Reservation">
+        SELECT
+            yy.予約番号 AS "reservationNumber.value"
+          , yy.会員番号 AS "member.memberNumber.value"
+          , yy.資料番号 AS "entry.entryNumber.value"
+        FROM
+            予約.予約履歴 yy
+                INNER JOIN 予約.未準備 ym
+                    ON yy.予約番号 = ym.予約番号
     </select>
 </mapper>

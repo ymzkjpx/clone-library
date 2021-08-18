@@ -11,7 +11,8 @@
 <main>
     <article>
         <h4 th:text="${book.showDescribe()}"></h4>
-        <form action="#" th:action="@{/reservation/register}" method="post" name="body">
+        <form action="#" th:action="@{/reservation/register}" method="post" name="body" th:object="${member}">
+            <input type="text" th:field="*{value}" placeholder="会員番号">
             <input type="hidden" name="entry" th:value="${book.entryNumber()}">
             <button>予約を申し込む</button>
         </form>

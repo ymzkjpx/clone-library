@@ -1,10 +1,15 @@
 package com.example.demo.application.scenario;
 
-import com.example.demo.application.service.BookSearchService;
-import com.example.demo.domain.model.book.Entry;
-import com.example.demo.domain.model.book.EntryNumber;
-import com.example.demo.domain.model.book.Keyword;
-import com.example.demo.domain.model.reservation.Books;
+import com.example.demo.application.service.member.MemberQueryService;
+import com.example.demo.application.service.reservation.ReservationQueryService;
+import com.example.demo.application.service.reservation.ReservationRecordService;
+import com.example.demo.domain.model.material.Entry;
+import com.example.demo.domain.model.material.EntryNumber;
+import com.example.demo.domain.model.material.Keyword;
+import com.example.demo.domain.model.member.Member;
+import com.example.demo.domain.model.member.MemberNumber;
+import com.example.demo.domain.model.reservation.loan.Books;
+import com.example.demo.domain.model.reservation.reservation.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,26 +17,34 @@ import org.springframework.stereotype.Service;
 public class ReservationScenario {
 
     @Autowired
-    BookSearchService bookSearchService;
+    ReservationQueryService reservationQueryService;
+
+    @Autowired
+    ReservationRecordService reservationRecordService;
+
+    @Autowired
+    MemberQueryService memberQueryService;
 
     /**
      * キーワードで本を見つける.
      */
-    public Books search(Keyword keyword){
-        return bookSearchService.search(keyword);
+    public Books search(Keyword keyword) {
+        return reservationQueryService.search(keyword);
     }
 
     /**
      * 資料番号で本を見つける
      */
-    public Entry findByMaterial(EntryNumber entryNumber){
-        return bookSearchService.findByMaterial(entryNumber);
+    public Entry findByMaterial(EntryNumber entryNumber) {
+        return reservationQueryService.findByMaterial(entryNumber);
     }
 
     /**
      * 資料の予約を申し込む
      */
-    public void register(Entry entry){
-        bookSearchService.register(entry);
+    public void register(MemberNumber memberNumber, Entry entry) {
+        Member member = memberQueryService.search(memberNumber);
+        Reservation reservation = Reservation.of(member, entry);
+        reservationRecordService.register(reservation);
     }
 }

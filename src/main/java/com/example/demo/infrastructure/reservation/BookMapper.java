@@ -1,9 +1,11 @@
 package com.example.demo.infrastructure.reservation;
 
-import com.example.demo.domain.model.book.Entry;
-import com.example.demo.domain.model.book.EntryNumber;
-import com.example.demo.domain.model.book.Keyword;
-import com.example.demo.domain.model.reservation.MaterialLoanability;
+import com.example.demo.domain.model.material.Entry;
+import com.example.demo.domain.model.material.EntryNumber;
+import com.example.demo.domain.model.material.Keyword;
+import com.example.demo.domain.model.reservation.loan.MaterialLoanability;
+import com.example.demo.domain.model.reservation.reservation.Reservation;
+import com.example.demo.domain.model.reservation.reservation.ReservationNumber;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -15,7 +17,11 @@ public interface BookMapper {
 
     Entry findByMaterial(@Param("entryNumber") EntryNumber entryNumber);
 
-    void register(@Param("nextNumber")int nextNumber, @Param("entry") Entry entry);
-
     int nextNumber();
+
+    void register(@Param("reservationNumber") ReservationNumber reservationNumber, @Param("entryNumber")EntryNumber entryNumber);
+
+    void insert未準備(@Param("reservationNumber") ReservationNumber reservationNumber);
+
+    List<Reservation> findAll(EntryNumber entryNumber);
 }

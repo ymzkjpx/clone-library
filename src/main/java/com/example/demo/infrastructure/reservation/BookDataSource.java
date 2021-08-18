@@ -1,11 +1,14 @@
 package com.example.demo.infrastructure.reservation;
 
-import com.example.demo.application.service.BookRepository;
-import com.example.demo.domain.model.book.*;
-import com.example.demo.domain.model.reservation.Books;
-import com.example.demo.domain.model.reservation.MaterialLoanability;
+import com.example.demo.application.service.reservation.BookRepository;
+import com.example.demo.domain.model.material.*;
+import com.example.demo.domain.model.reservation.loan.Books;
+import com.example.demo.domain.model.reservation.loan.MaterialLoanability;
+import com.example.demo.domain.model.reservation.reservation.Reservation;
+import com.example.demo.domain.model.reservation.reservation.ReservationNumber;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,8 +30,10 @@ public class BookDataSource implements BookRepository {
     }
 
     @Override
-    public void register(Entry entry){
-        int nextNumber = bookMapper.nextNumber();
-        bookMapper.register(nextNumber, entry);
+    @Transactional
+    public void register(Reservation reservation){
+        ReservationNumber reservationNumber = ReservationNumber.generate();
+        bookMapper.register(reservationNumber, reservation.entry().entryNumber());
+        bookMapper.insert未準備(reservationNumber);
     }
 }

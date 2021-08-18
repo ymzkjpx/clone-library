@@ -1,4 +1,4 @@
-package com.example.demo.domain.model.book;
+package com.example.demo.domain.model.material;
 
 import lombok.Getter;
 import lombok.Setter;
