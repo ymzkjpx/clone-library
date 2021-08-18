@@ -1,17 +1,14 @@
 package com.example.demo.application.service;
 
 import com.example.demo.LibraryDBTest;
-import com.example.demo.domain.model.book.Entry;
-import com.example.demo.domain.model.book.EntryNumber;
-import com.example.demo.domain.model.book.Keyword;
+import com.example.demo.domain.model.material.Entry;
+import com.example.demo.domain.model.material.EntryNumber;
+import com.example.demo.domain.model.material.Keyword;
 import com.example.demo.domain.model.reservation.loan.MaterialLoanability;
-import com.example.demo.domain.model.reservation.reservation.Reservation;
 import com.example.demo.infrastructure.reservation.BookMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 

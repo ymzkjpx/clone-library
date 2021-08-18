@@ -1,6 +1,6 @@
 package com.example.demo.domain.model.reservation.loan;
 
-import com.example.demo.domain.model.book.NumberOfBook;
+import com.example.demo.domain.model.material.NumberOfBook;
 
 import java.util.List;
 

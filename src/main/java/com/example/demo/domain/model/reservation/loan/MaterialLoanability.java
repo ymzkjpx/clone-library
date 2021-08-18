@@ -1,9 +1,7 @@
 package com.example.demo.domain.model.reservation.loan;
 
-import com.example.demo.domain.model.book.Entry;
-import com.example.demo.domain.model.book.EntryNumber;
-import com.example.demo.domain.model.reservation.loan.Loanability;
-import com.example.demo.domain.model.reservation.loan.LoanableItems;
+import com.example.demo.domain.model.material.Entry;
+import com.example.demo.domain.model.material.EntryNumber;
 
 public class MaterialLoanability {
     Entry entry;

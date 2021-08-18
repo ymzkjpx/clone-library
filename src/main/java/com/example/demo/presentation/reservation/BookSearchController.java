@@ -1,7 +1,7 @@
 package com.example.demo.presentation.reservation;
 
 import com.example.demo.application.scenario.ReservationScenario;
-import com.example.demo.domain.model.book.Keyword;
+import com.example.demo.domain.model.material.Keyword;
 import com.example.demo.domain.model.reservation.loan.Books;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

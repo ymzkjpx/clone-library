@@ -186,4 +186,9 @@ VALUES
 INSERT INTO
     予約.予約履歴(予約番号, 会員番号, 資料番号)
 VALUES
-    ((SELECT NEXTVAL('予約.予約番号')), 1, 4);
+    ('2b6c5197-3671-4229-81e7-ca62b9bf7f55', 1, 4);
+
+INSERT INTO
+    予約.未準備(予約番号)
+VALUES
+    ('2b6c5197-3671-4229-81e7-ca62b9bf7f55');
