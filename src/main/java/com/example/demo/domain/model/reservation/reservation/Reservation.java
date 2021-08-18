@@ -11,9 +11,9 @@ public class Reservation {
     Member member;
     Entry entry;
 
-    public Reservation(){}
+    public Reservation() {}
 
-    private Reservation(ReservationNumber reservationNumber, Member member, Entry entry){
+    private Reservation(ReservationNumber reservationNumber, Member member, Entry entry) {
         this.reservationNumber = reservationNumber;
         this.member = member;
         this.entry = entry;
@@ -25,7 +25,7 @@ public class Reservation {
 
     public Entry entry() {return entry;}
 
-    public static Reservation of(Member member, Entry entry){
+    public static Reservation of(Member member, Entry entry) {
         return new Reservation(ReservationNumber.generate(), member, entry);
     }
 

@@ -7,23 +7,23 @@ import java.util.List;
 public class Books {
     List<MaterialLoanability> list;
 
-    public Books(List<MaterialLoanability> list){
+    public Books(List<MaterialLoanability> list) {
         this.list = list;
     }
 
-    public NumberOfBook numberOfMaterial(){
+    public NumberOfBook numberOfMaterial() {
         return new NumberOfBook(list.size());
     }
 
-    public int size(){
+    public int size() {
         return list.size();
     }
 
-    public boolean isPresent(){
+    public boolean isPresent() {
         return size() > 0;
     }
 
-    public List<MaterialLoanability> asList(){
+    public List<MaterialLoanability> asList() {
         return list;
     }
 }

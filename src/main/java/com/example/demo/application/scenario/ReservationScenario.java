@@ -28,21 +28,21 @@ public class ReservationScenario {
     /**
      * キーワードで本を見つける.
      */
-    public Books search(Keyword keyword){
+    public Books search(Keyword keyword) {
         return reservationQueryService.search(keyword);
     }
 
     /**
      * 資料番号で本を見つける
      */
-    public Entry findByMaterial(EntryNumber entryNumber){
+    public Entry findByMaterial(EntryNumber entryNumber) {
         return reservationQueryService.findByMaterial(entryNumber);
     }
 
     /**
      * 資料の予約を申し込む
      */
-    public void register(MemberNumber memberNumber, Entry entry){
+    public void register(MemberNumber memberNumber, Entry entry) {
         Member member = memberQueryService.search(memberNumber);
         Reservation reservation = Reservation.of(member, entry);
         reservationRecordService.register(reservation);

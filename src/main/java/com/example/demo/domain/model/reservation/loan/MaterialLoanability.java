@@ -7,23 +7,23 @@ public class MaterialLoanability {
     Entry entry;
     LoanableItems loanableItems;
 
-    public String showTitle(){
+    public String showTitle() {
         return entry.title().value();
     }
 
-    public String showAuthor(){
+    public String showAuthor() {
         return entry.author().value();
     }
 
-    public Loanability showLoanability(){
+    public Loanability showLoanability() {
         return loanability(loanableItems);
     }
 
-    private Loanability loanability(LoanableItems loanableItems){
+    private Loanability loanability(LoanableItems loanableItems) {
         return Loanability.loanable(loanableItems.value());
     }
 
-    public EntryNumber entryNumber(){
+    public EntryNumber entryNumber() {
         return entry.entryNumber();
     }
 }

@@ -1,7 +1,7 @@
 package com.example.demo.domain.model.material;
 
-import com.example.demo.domain.model.reservation.loan.LoanableItems;
 import com.example.demo.domain.model.reservation.loan.Loanability;
+import com.example.demo.domain.model.reservation.loan.LoanableItems;
 
 public class Book {
     Entry entry;
@@ -19,15 +19,15 @@ public class Book {
         return Loanability.loanable(loanableItems.value());
     }
 
-    public Entry entry(){
+    public Entry entry() {
         return entry;
     }
 
-    public EntryNumber entryNumber(){
+    public EntryNumber entryNumber() {
         return entry.entryNumber();
     }
 
-    public LoanableItems loanableItems(){
+    public LoanableItems loanableItems() {
         return loanableItems;
     }
 

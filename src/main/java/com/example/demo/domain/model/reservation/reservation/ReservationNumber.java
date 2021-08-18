@@ -6,27 +6,27 @@ public class ReservationNumber {
     UUID value;
 
     @Deprecated
-    private ReservationNumber(){}
+    private ReservationNumber() {}
 
-    private ReservationNumber(UUID uuid){
+    private ReservationNumber(UUID uuid) {
         this.value = uuid;
     }
 
-    public static ReservationNumber generate(){
+    public static ReservationNumber generate() {
         UUID uuid = UUID.randomUUID();
         return new ReservationNumber(uuid);
     }
 
-    public UUID value(){
+    public UUID value() {
         return value;
     }
 
-    public String asString(){
+    public String asString() {
         return toString();
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return value.toString();
     }
 }

@@ -14,7 +14,7 @@ public class MemberQueryService {
     /**
      * メンバー番号からメンバーを検索
      */
-    public Member search(MemberNumber memberNumber){
+    public Member search(MemberNumber memberNumber) {
         return memberRepository.search(memberNumber);
     }
 }

@@ -4,7 +4,7 @@ public class Name {
     String value;
 
     @Deprecated
-    public Name(){}
+    public Name() {}
 
     public Name(String name) {
         this.value = name;

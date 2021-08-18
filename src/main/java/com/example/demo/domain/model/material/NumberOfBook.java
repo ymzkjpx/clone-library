@@ -8,13 +8,13 @@ public class NumberOfBook {
         this.value = value;
     }
 
-    public String show(){
+    public String show() {
         String over = value > MAX_TO_SHOW ? "以上" : "";
         return value + "件" + over;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return Integer.toString(value);
     }
 }

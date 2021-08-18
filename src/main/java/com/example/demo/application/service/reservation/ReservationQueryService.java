@@ -16,14 +16,14 @@ public class ReservationQueryService {
     /**
      * 資料番号で本を見つける.
      */
-    public Books search(Keyword keyword){
+    public Books search(Keyword keyword) {
         return bookRepository.search(keyword);
     }
 
     /**
      * 資料番号で本を見つける.
      */
-    public Entry findByMaterial(EntryNumber entryNumber){
+    public Entry findByMaterial(EntryNumber entryNumber) {
         return bookRepository.findByMaterial(entryNumber);
     }
 

@@ -11,7 +11,7 @@ public enum MemberType {
         this.range = range;
     }
 
-    @Size(min=0, max=100)
+    @Size(min = 0, max = 100)
     public static MemberType of(int age) {
         if (age < 12) return 小人;
         if (age < 18) return 中人;

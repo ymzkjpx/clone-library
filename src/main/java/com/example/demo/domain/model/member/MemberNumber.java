@@ -19,7 +19,7 @@ public class MemberNumber {
         return "MemberNumber{" + "value=" + value + '}';
     }
 
-    public static MemberNumber empty(){
+    public static MemberNumber empty() {
         return new MemberNumber();
     }
 }

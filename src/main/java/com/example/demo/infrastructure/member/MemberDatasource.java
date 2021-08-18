@@ -11,7 +11,7 @@ public class MemberDatasource implements MemberRepository {
     @Autowired
     MemberMapper memberMapper;
 
-    public Member search(MemberNumber memberNumber){
+    public Member search(MemberNumber memberNumber) {
         return memberMapper.search(memberNumber);
     }
 }

@@ -12,7 +12,7 @@ public class ReservationRecordService {
     /**
      * 資料の予約を申し込む
      */
-    public void register(Reservation reservation){
+    public void register(Reservation reservation) {
         bookRepository.register(reservation);
     }
 }
