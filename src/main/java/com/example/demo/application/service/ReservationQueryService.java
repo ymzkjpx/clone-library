@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BookSearchService {
+public class ReservationQueryService {
 
     @Autowired
     BookRepository bookRepository;
@@ -27,10 +27,4 @@ public class BookSearchService {
         return bookRepository.findByMaterial(entryNumber);
     }
 
-    /**
-     * 資料の予約を申し込む
-     */
-    public void register(Entry entry){
-        bookRepository.register(entry);
-    }
 }

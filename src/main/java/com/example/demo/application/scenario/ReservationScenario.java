@@ -1,6 +1,7 @@
 package com.example.demo.application.scenario;
 
-import com.example.demo.application.service.BookSearchService;
+import com.example.demo.application.service.ReservationQueryService;
+import com.example.demo.application.service.ReservationRecordService;
 import com.example.demo.domain.model.book.Entry;
 import com.example.demo.domain.model.book.EntryNumber;
 import com.example.demo.domain.model.book.Keyword;
@@ -12,26 +13,29 @@ import org.springframework.stereotype.Service;
 public class ReservationScenario {
 
     @Autowired
-    BookSearchService bookSearchService;
+    ReservationQueryService reservationQueryService;
+
+    @Autowired
+    ReservationRecordService reservationRecordService;
 
     /**
      * キーワードで本を見つける.
      */
     public Books search(Keyword keyword){
-        return bookSearchService.search(keyword);
+        return reservationQueryService.search(keyword);
     }
 
     /**
      * 資料番号で本を見つける
      */
     public Entry findByMaterial(EntryNumber entryNumber){
-        return bookSearchService.findByMaterial(entryNumber);
+        return reservationQueryService.findByMaterial(entryNumber);
     }
 
     /**
      * 資料の予約を申し込む
      */
     public void register(Entry entry){
-        bookSearchService.register(entry);
+        reservationRecordService.register(entry);
     }
 }
