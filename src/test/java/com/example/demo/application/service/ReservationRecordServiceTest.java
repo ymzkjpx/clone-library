@@ -45,7 +45,7 @@ class ReservationRecordServiceTest {
         List<Reservation> reservations = bookMapper.findAll(entry1.entryNumber());
         Reservation reservation = reservations.get(1);
         assertAll(
-                ()->assertEquals(reservation.member(), 1),
+                ()->assertEquals(reservation.member().memberNumber().value(), 1),
                 ()->assertEquals(reservation.entry().entryNumber().value(), 2)
         );
     }

@@ -6,7 +6,7 @@ public class Member {
     MemberType memberType;
 
     @Deprecated
-    private Member() {}
+    public Member() {}
 
     public Member(MemberNumber memberNumber, Name name, MemberType memberType) {
         this.memberNumber = memberNumber;

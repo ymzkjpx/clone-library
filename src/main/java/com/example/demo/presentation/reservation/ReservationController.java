@@ -3,6 +3,7 @@ package com.example.demo.presentation.reservation;
 import com.example.demo.application.scenario.ReservationScenario;
 import com.example.demo.domain.model.material.Entry;
 import com.example.demo.domain.model.material.EntryNumber;
+import com.example.demo.domain.model.member.MemberNumber;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,13 +27,14 @@ public class ReservationController {
     String reservationForm(@ModelAttribute("entry") EntryNumber entryNumber, Model model, BindingResult bindingResult) {
         Entry book = reservationScenario.findByMaterial(entryNumber);
         model.addAttribute("book", book);
+        model.addAttribute("member", MemberNumber.empty());
         return "reservation/form";
     }
 
     @PostMapping
-    String register(@ModelAttribute("entry") EntryNumber entryNumber, Model model, BindingResult bindingResult, RedirectAttributes attributes) {
+    String register(@ModelAttribute("member")MemberNumber memberNumber, @ModelAttribute("entry") EntryNumber entryNumber, Model model, BindingResult bindingResult, RedirectAttributes attributes) {
         Entry entry = reservationScenario.findByMaterial(entryNumber);
-        reservationScenario.register( entry);
+        reservationScenario.register(memberNumber, entry);
         attributes.addFlashAttribute("entry", entry);
         return "redirect:/reservation/register/completed";
     }

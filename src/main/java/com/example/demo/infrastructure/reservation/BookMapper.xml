@@ -53,7 +53,7 @@
     <select id="findAll" resultType="com.example.demo.domain.model.reservation.reservation.Reservation">
         SELECT
             yy.予約番号 AS "reservationNumber.value"
-          , yy.会員番号 AS "member"
+          , yy.会員番号 AS "member.memberNumber.value"
           , yy.資料番号 AS "entry.entryNumber.value"
         FROM
             予約.予約履歴 yy

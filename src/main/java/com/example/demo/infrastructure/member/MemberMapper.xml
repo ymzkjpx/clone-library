@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.demo.infrastructure.reservation.BookMapper">
+<mapper namespace="com.example.demo.infrastructure.member.MemberMapper">
     <select id="search" resultType="com.example.demo.domain.model.member.Member">
         SELECT
             kk.会員番号 AS "memberNumber.value"
@@ -11,6 +11,6 @@
         FROM
             会員.会員 kk
         WHERE
-            kk.会員番号 = #{memberNumber.value}
+            kk.会員番号 = #{value}
     </select>
 </mapper>
