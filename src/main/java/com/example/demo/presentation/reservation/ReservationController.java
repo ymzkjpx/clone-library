@@ -1,8 +1,8 @@
 package com.example.demo.presentation.reservation;
 
 import com.example.demo.application.scenario.ReservationScenario;
-import com.example.demo.domain.model.material.Entry;
-import com.example.demo.domain.model.material.EntryNumber;
+import com.example.demo.domain.model.material.entry.Entry;
+import com.example.demo.domain.model.material.entry.EntryNumber;
 import com.example.demo.domain.model.member.MemberNumber;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,6 +1,6 @@
 package com.example.demo.domain.model.reservation.reservation;
 
-import com.example.demo.domain.model.material.Entry;
+import com.example.demo.domain.model.material.entry.Entry;
 import com.example.demo.domain.model.member.Member;
 
 /**

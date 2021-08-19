@@ -5,59 +5,59 @@
 <mapper namespace="com.example.demo.infrastructure.reservation.BookMapper">
     <select id="search" resultType="com.example.demo.domain.model.reservation.loan.MaterialLoanability">
         SELECT
-            st.資料番号 AS "entry.entryNumber.value"
-          , st.タイトル AS "entry.title.value"
-          , st.著者 AS "entry.author.value"
-          , COUNT(st.資料番号) AS "loanableItems.stock"
+        st.資料番号 AS "entry.entryNumber.value"
+        , st.タイトル AS "entry.title.value"
+        , st.著者 AS "entry.author.value"
+        , COUNT(st.資料番号) AS "loanableItems.stock"
         FROM
-            資料.図書 st
-                INNER JOIN 蔵書.蔵書 zz
-                    ON (st.資料番号 = zz.資料番号)
-                INNER JOIN 蔵書.貸出可能 zk
-                    ON (zz.蔵書番号 = zk.蔵書番号)
+        資料.図書 st
+        INNER JOIN 蔵書.蔵書 zz
+        ON (st.資料番号 = zz.資料番号)
+        INNER JOIN 蔵書.貸出可能 zk
+        ON (zz.蔵書番号 = zk.蔵書番号)
         WHERE
-            st.タイトル || st.著者 LIKE '%' || #{keyword.value} || '%'
+        st.タイトル || st.著者 LIKE '%' || #{keyword.value} || '%'
         GROUP BY
-            st.資料番号
+        st.資料番号
         ORDER BY
-            st.資料番号
-            LIMIT #{limit}
+        st.資料番号
+        LIMIT #{limit}
     </select>
 
-    <select id="findByMaterial" resultType="com.example.demo.domain.model.material.Entry">
+    <select id="findByMaterial" resultType="com.example.demo.domain.model.material.entry.Entry">
         SELECT
-            st.資料番号 AS "entryNumber.value"
-          , st.タイトル AS "title.value"
-          , st.著者 AS "author.value"
+        st.資料番号 AS "entryNumber.value"
+        , st.タイトル AS "title.value"
+        , st.著者 AS "author.value"
         FROM
-            資料.図書 st
+        資料.図書 st
         WHERE
-            st.資料番号 = #{entryNumber.value}
+        st.資料番号 = #{entryNumber.value}
     </select>
 
     <select id="register">
         INSERT INTO
-            予約.予約履歴(予約番号, 会員番号, 資料番号)
+        予約.予約履歴(予約番号, 会員番号, 資料番号)
         VALUES
-            (#{reservationNumber.value}, 1, #{entryNumber.value})
+        (#{reservationNumber.value}, 1, #{entryNumber.value})
     </select>
 
     <insert id="insert未準備">
         INSERT INTO
-            予約.未準備(予約番号)
+        予約.未準備(予約番号)
         VALUES
-            (#{reservationNumber.value})
+        (#{reservationNumber.value})
     </insert>
 
 
     <select id="findAll" resultType="com.example.demo.domain.model.reservation.reservation.Reservation">
         SELECT
-            yy.予約番号 AS "reservationNumber.value"
-          , yy.会員番号 AS "member.memberNumber.value"
-          , yy.資料番号 AS "entry.entryNumber.value"
+        yy.予約番号 AS "reservationNumber.value"
+        , yy.会員番号 AS "member.memberNumber.value"
+        , yy.資料番号 AS "entry.entryNumber.value"
         FROM
-            予約.予約履歴 yy
-                INNER JOIN 予約.未準備 ym
-                    ON yy.予約番号 = ym.予約番号
+        予約.予約履歴 yy
+        INNER JOIN 予約.未準備 ym
+        ON yy.予約番号 = ym.予約番号
     </select>
 </mapper>

@@ -1,8 +1,8 @@
 package com.example.demo.infrastructure.reservation;
 
-import com.example.demo.domain.model.material.Entry;
-import com.example.demo.domain.model.material.EntryNumber;
-import com.example.demo.domain.model.material.Keyword;
+import com.example.demo.domain.model.material.entry.Entry;
+import com.example.demo.domain.model.material.entry.EntryNumber;
+import com.example.demo.domain.model.material.entry.Keyword;
 import com.example.demo.domain.model.reservation.loan.MaterialLoanability;
 import com.example.demo.domain.model.reservation.reservation.Reservation;
 import com.example.demo.domain.model.reservation.reservation.ReservationNumber;
@@ -19,7 +19,7 @@ public interface BookMapper {
 
     int nextNumber();
 
-    void register(@Param("reservationNumber") ReservationNumber reservationNumber, @Param("entryNumber")EntryNumber entryNumber);
+    void register(@Param("reservationNumber") ReservationNumber reservationNumber, @Param("entryNumber") EntryNumber entryNumber);
 
     void insert未準備(@Param("reservationNumber") ReservationNumber reservationNumber);
 
