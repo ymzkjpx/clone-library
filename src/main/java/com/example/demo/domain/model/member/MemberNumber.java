@@ -20,7 +20,7 @@ public class MemberNumber {
         return new MemberNumber();
     }
 
-    public Integer getValue() {
+    public Integer value() {
         return value;
     }
 

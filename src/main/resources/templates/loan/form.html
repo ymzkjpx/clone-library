@@ -13,15 +13,11 @@
         <h3>本を貸し出す</h3>
         <form action="#" method="post" th:action="@{/loan/register}" th:object="${loanRequest}">
             <label>会員番号</label>
-            <!--            <input th:field="${loanRequest.memberNumber.value}" type="text">-->
-
-            <label>会員番号</label>
-            <input placeholder="会員番号　1,2など" th:field="*{memberNumber.value}" type="text">
-
+            <input th:field="${loanRequest.memberNumber.value}" type="text">
             <label>所蔵品番号</label>
-            <!--            <input th:field="*{itemNumber.value}" type="text">-->
+            <input th:field="*{itemNumber.value}" type="text">
             <label>貸出日</label>
-            <!--            <input th:field="*{loanDate.value}" type="text">-->
+            <input th:field="*{loanDate.value}" type="text">
             <button>登録</button>
         </form>
     </article>

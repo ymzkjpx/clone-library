@@ -1,5 +1,6 @@
 package com.example.demo.domain.model.loan;
 
+import com.example.demo.domain.model.material.item.ItemNumber;
 import com.example.demo.domain.model.member.MemberNumber;
 
 import javax.validation.Valid;
@@ -11,9 +12,13 @@ import javax.validation.Valid;
 public class LoanRequest {
 
     @Valid MemberNumber memberNumber;
+    @Valid ItemNumber itemNumber;
+    @Valid LoanDate loanDate;
 
-    public LoanRequest(@Valid MemberNumber memberNumber) {
+    public LoanRequest(MemberNumber memberNumber, ItemNumber itemNumber, LoanDate loanDate) {
         this.memberNumber = memberNumber;
+        this.itemNumber = itemNumber;
+        this.loanDate = loanDate;
     }
 
     @Deprecated
@@ -26,6 +31,14 @@ public class LoanRequest {
 
     public MemberNumber getMemberNumber() {
         return memberNumber;
+    }
+
+    public ItemNumber itemNumber() {
+        return itemNumber;
+    }
+
+    public LoanDate loanDate() {
+        return loanDate;
     }
 
     @Override
