@@ -1,4 +1,4 @@
-package com.example.demo.domain.model.material;
+package com.example.demo.domain.model.material.entry;
 
 import com.example.demo.domain.model.reservation.loan.Loanability;
 import com.example.demo.domain.model.reservation.loan.LoanableItems;

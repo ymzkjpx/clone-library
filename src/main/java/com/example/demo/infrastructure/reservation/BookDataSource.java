@@ -1,7 +1,10 @@
 package com.example.demo.infrastructure.reservation;
 
 import com.example.demo.application.service.reservation.BookRepository;
-import com.example.demo.domain.model.material.*;
+import com.example.demo.domain.model.material.entry.Entry;
+import com.example.demo.domain.model.material.entry.EntryNumber;
+import com.example.demo.domain.model.material.entry.Keyword;
+import com.example.demo.domain.model.material.entry.NumberOfBook;
 import com.example.demo.domain.model.reservation.loan.Books;
 import com.example.demo.domain.model.reservation.loan.MaterialLoanability;
 import com.example.demo.domain.model.reservation.reservation.Reservation;
@@ -25,13 +28,13 @@ public class BookDataSource implements BookRepository {
     }
 
     @Override
-    public Entry findByMaterial(EntryNumber entryNumber){
+    public Entry findByMaterial(EntryNumber entryNumber) {
         return bookMapper.findByMaterial(entryNumber);
     }
 
     @Override
     @Transactional
-    public void register(Reservation reservation){
+    public void register(Reservation reservation) {
         ReservationNumber reservationNumber = ReservationNumber.generate();
         bookMapper.register(reservationNumber, reservation.entry().entryNumber());
         bookMapper.insert未準備(reservationNumber);

@@ -1,7 +1,7 @@
 package com.example.demo.presentation.reservation;
 
 import com.example.demo.application.scenario.ReservationScenario;
-import com.example.demo.domain.model.material.Keyword;
+import com.example.demo.domain.model.material.entry.Keyword;
 import com.example.demo.domain.model.reservation.loan.Books;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +32,7 @@ public class BookSearchController {
     }
 
     @InitBinder
-    public void initBinder(WebDataBinder binder){
+    public void initBinder(WebDataBinder binder) {
         binder.setAllowedFields("keyword.value");
     }
 }

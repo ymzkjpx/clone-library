@@ -2,9 +2,9 @@ package com.example.demo.application.service;
 
 import com.example.demo.LibraryDBTest;
 import com.example.demo.application.service.reservation.ReservationQueryService;
-import com.example.demo.domain.model.material.Entry;
-import com.example.demo.domain.model.material.EntryNumber;
-import com.example.demo.domain.model.material.Keyword;
+import com.example.demo.domain.model.material.entry.Entry;
+import com.example.demo.domain.model.material.entry.EntryNumber;
+import com.example.demo.domain.model.material.entry.Keyword;
 import com.example.demo.domain.model.reservation.loan.MaterialLoanability;
 import com.example.demo.infrastructure.reservation.BookMapper;
 import org.junit.jupiter.api.DisplayName;
@@ -26,18 +26,13 @@ class ReservationQueryServiceTest {
     @DisplayName("キーワードで本を検索できる")
     void search() {
         MaterialLoanability entry = reservationQueryService.search(new Keyword("ハンドブック")).asList().get(0);
-        assertAll(
-                ()->assertEquals(entry.entryNumber().value(), 6),
-                ()->assertEquals(entry.showLoanability().show(), "◯")
-        );
+        assertAll(() -> assertEquals(entry.entryNumber().value(), 6), () -> assertEquals(entry.showLoanability().show(), "◯"));
     }
 
     @Test
     @DisplayName("資料番号で本を検索できる")
-    void findByMaterial(){
+    void findByMaterial() {
         Entry entry = reservationQueryService.findByMaterial(new EntryNumber(2));
-        assertAll(
-                ()->assertEquals(entry.entryNumber().value(), 2)
-        );
+        assertAll(() -> assertEquals(entry.entryNumber().value(), 2));
     }
 }

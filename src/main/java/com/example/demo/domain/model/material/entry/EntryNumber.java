@@ -1,4 +1,4 @@
-package com.example.demo.domain.model.material;
+package com.example.demo.domain.model.material.entry;
 
 /**
  * 資料番号

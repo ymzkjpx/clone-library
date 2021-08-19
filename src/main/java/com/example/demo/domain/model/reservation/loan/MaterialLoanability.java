@@ -1,7 +1,7 @@
 package com.example.demo.domain.model.reservation.loan;
 
-import com.example.demo.domain.model.material.Entry;
-import com.example.demo.domain.model.material.EntryNumber;
+import com.example.demo.domain.model.material.entry.Entry;
+import com.example.demo.domain.model.material.entry.EntryNumber;
 
 public class MaterialLoanability {
     Entry entry;

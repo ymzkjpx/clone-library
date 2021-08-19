@@ -1,4 +1,4 @@
-package com.example.demo.domain.model.material;
+package com.example.demo.domain.model.material.entry;
 
 public class NumberOfBook {
     private int value;
