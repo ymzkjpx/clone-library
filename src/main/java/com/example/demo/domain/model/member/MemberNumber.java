@@ -1,25 +1,32 @@
 package com.example.demo.domain.model.member;
 
+import javax.validation.constraints.NotNull;
+
+/**
+ * 会員番号
+ */
 public class MemberNumber {
-    Integer value;
+    @NotNull(message = "会員番号を入力してください。") Integer value;
 
-    @Deprecated
-    public MemberNumber() {}
-
-    public MemberNumber(Integer number) {
-        this.value = number;
+    public MemberNumber(Integer value) {
+        this.value = value;
     }
 
-    public Integer value() {
+    @Deprecated
+    MemberNumber() {
+    }
+
+    public static MemberNumber empty() {
+        return new MemberNumber();
+    }
+
+    public Integer getValue() {
         return value;
     }
 
     @Override
     public String toString() {
-        return "MemberNumber{" + "value=" + value + '}';
-    }
-
-    public static MemberNumber empty() {
-        return new MemberNumber();
+        if (value == null || value == 0) return "";
+        return Integer.toString(value);
     }
 }

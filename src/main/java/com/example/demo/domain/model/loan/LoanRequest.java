@@ -1,30 +1,35 @@
 package com.example.demo.domain.model.loan;
 
 import com.example.demo.domain.model.member.MemberNumber;
-import lombok.AllArgsConstructor;
+
+import javax.validation.Valid;
 
 
-@AllArgsConstructor
+/**
+ * 貸出依頼
+ */
 public class LoanRequest {
-    MemberNumber memberNumber;
-    ItemNumber itemNumber;
-    LoanDate loanDate;
 
-    private LoanRequest() {}
+    @Valid MemberNumber memberNumber;
+
+    public LoanRequest(@Valid MemberNumber memberNumber) {
+        this.memberNumber = memberNumber;
+    }
+
+    @Deprecated
+    LoanRequest() {
+    }
 
     public static LoanRequest empty() {
         return new LoanRequest();
     }
 
-    public MemberNumber memberNumber() {
+    public MemberNumber getMemberNumber() {
         return memberNumber;
     }
 
-    public ItemNumber itemNumber() {
-        return itemNumber;
-    }
-
-    public LoanDate loanDate() {
-        return loanDate;
+    @Override
+    public String toString() {
+        return "LoanRequest{" + "memberNumber=" + memberNumber + '}';
     }
 }

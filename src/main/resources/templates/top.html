@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,12 @@
         <h2>My Test Application</h2>
         <h3>サンプル実装</h3>
         <ul>
-            <li><a th:href="@{/reservation/entries/search}">本の検索</a><smale>実装中</smale></li>
+            <li><a th:href="@{/reservation/entries/search}">本の検索</a>
+                <smale>実装中</smale>
+            </li>
+            <li><a th:href="@{/loan/register}">本の貸出</a>
+                <smale>実装中</smale>
+            </li>
         </ul>
     </article>
 </main>
