@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <head>
+        <th:block th:replace="_parts/head :: meta"/>
+        <title>貸出フォーム</title>
+        <th:block th:replace="_parts/head :: css"/>
+    </head>
+</head>
+<body>
+<main>
+    <article>
+        <h3>本を貸し出す</h3>
+        <form action="#" th:action="post" th:object="${loanRequest}">
+            <label>会員番号</label>
+            <input th:field="*{memberNumber}" type="text">
+            <label>所蔵品番号</label>
+            <input th:field="*{itemNumber}" type="text">
+            <label>貸出日</label>
+            <input th:field="*{loanDate}" type="text">
+            <button>登録</button>
+        </form>
+    </article>
+</main>
+
+</body>
+</html>
