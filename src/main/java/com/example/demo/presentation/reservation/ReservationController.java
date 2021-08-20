@@ -43,7 +43,7 @@ public class ReservationController {
     }
 
     @GetMapping("completed")
-    String complate(@ModelAttribute("entry") Entry entry, Model model) {
+    String completed(@ModelAttribute("entry") Entry entry, Model model) {
         model.addAttribute("entry", entry);
         return "reservation/completed";
     }

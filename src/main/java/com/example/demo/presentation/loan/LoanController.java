@@ -38,7 +38,15 @@ public class LoanController {
         if (bindingResult.hasErrors()) return "loan/form";
         MemberStatus memberStatus = loanScenario.memberStatus(loanRequest);
         loanScenario.loan(loanRequest);
-        return "loan/form";
+        redirectAttributes.addFlashAttribute("loanRequest", loanRequest);
+        model.addAttribute("loanRequest", loanRequest);
+        return "redirect:/loan/register/completed";
+    }
+
+    @GetMapping("completed")
+    String completed(@ModelAttribute("loanRequest") LoanRequest loanRequest, Model model) {
+        model.addAttribute("loanRequest", loanRequest);
+        return "loan/completed";
     }
 
     @InitBinder

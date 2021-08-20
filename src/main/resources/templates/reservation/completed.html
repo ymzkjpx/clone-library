@@ -10,7 +10,6 @@
 <body>
 <main>
     <article>
-        <ul>
         <ul th:if="${entry.isPresent()}">
             <h3>予約が完了しました</h3>
             <li th:text="'予約番号: ' + ${entry.entryNumber().value()}"></li>

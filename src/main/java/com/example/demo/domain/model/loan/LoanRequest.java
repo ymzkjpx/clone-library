@@ -4,6 +4,7 @@ import com.example.demo.domain.model.material.item.ItemNumber;
 import com.example.demo.domain.model.member.MemberNumber;
 
 import javax.validation.Valid;
+import java.util.Objects;
 
 
 /**
@@ -39,6 +40,10 @@ public class LoanRequest {
 
     public LoanDate loanDate() {
         return loanDate;
+    }
+
+    public boolean isPresent() {
+        return !Objects.isNull(memberNumber);
     }
 
     @Override
