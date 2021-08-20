@@ -12,12 +12,26 @@
     <article>
         <h3>本を貸し出す</h3>
         <form action="#" method="post" th:action="@{/loan/register}" th:object="${loanRequest}">
+
+            <ul th:if="${#fields.hasGlobalErrors()}">
+                <li th:each="err : ${#fields.globalErrors()}" th:text="${err}"></li>
+            </ul>
             <label>会員番号</label>
-            <input th:field="${loanRequest.memberNumber.value}" type="text">
+            <input th:field="*{memberNumber.value}" type="text">
+            <p th:if="${#fields.hasErrors('memberNumber.value')}">
+                <mark><span th:errors="*{memberNumber.value}"></span></mark>
+            </p>
             <label>所蔵品番号</label>
-            <input th:field="*{itemNumber.value}" type="text">
+            <input th:field="*{itemNumber.value}" th:value="1" type="text" value="1-A">
+            <p th:if="${#fields.hasErrors('itemNumber.value')}">
+                <mark><span th:errors="*{itemNumber.value}"></span></mark>
+            </p>
             <label>貸出日</label>
-            <input th:field="*{loanDate.value}" type="text">
+            <input th:field="*{loanDate.value}" th:value="2021/08/20" type="date" value="2021/08/20">
+            <p th:if="${#fields.hasErrors('loanDate.value')}">
+                <mark><span th:errors="*{loanDate.value}"></span></mark>
+            </p>
+            <br>
             <button>登録</button>
         </form>
     </article>

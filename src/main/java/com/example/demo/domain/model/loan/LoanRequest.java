@@ -4,6 +4,7 @@ import com.example.demo.domain.model.material.item.ItemNumber;
 import com.example.demo.domain.model.member.MemberNumber;
 
 import javax.validation.Valid;
+import java.util.Objects;
 
 
 /**
@@ -13,7 +14,7 @@ public class LoanRequest {
 
     @Valid MemberNumber memberNumber;
     @Valid ItemNumber itemNumber;
-    @Valid LoanDate loanDate;
+    @Valid LoanDate loanDate = LoanDate.now();
 
     public LoanRequest(MemberNumber memberNumber, ItemNumber itemNumber, LoanDate loanDate) {
         this.memberNumber = memberNumber;
@@ -29,7 +30,7 @@ public class LoanRequest {
         return new LoanRequest();
     }
 
-    public MemberNumber getMemberNumber() {
+    public MemberNumber memberNumber() {
         return memberNumber;
     }
 
@@ -39,6 +40,10 @@ public class LoanRequest {
 
     public LoanDate loanDate() {
         return loanDate;
+    }
+
+    public boolean isPresent() {
+        return !Objects.isNull(memberNumber);
     }
 
     @Override
