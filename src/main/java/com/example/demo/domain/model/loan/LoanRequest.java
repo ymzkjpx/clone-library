@@ -13,7 +13,7 @@ public class LoanRequest {
 
     @Valid MemberNumber memberNumber;
     @Valid ItemNumber itemNumber;
-    @Valid LoanDate loanDate;
+    @Valid LoanDate loanDate = LoanDate.now();
 
     public LoanRequest(MemberNumber memberNumber, ItemNumber itemNumber, LoanDate loanDate) {
         this.memberNumber = memberNumber;

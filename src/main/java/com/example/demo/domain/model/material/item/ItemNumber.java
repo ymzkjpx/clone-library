@@ -1,16 +1,23 @@
 package com.example.demo.domain.model.material.item;
 
+import javax.validation.constraints.NotBlank;
+
 public class ItemNumber {
-    Integer value;
+    @NotBlank(message = "所蔵品番号を入力してください。") String value;
 
     @Deprecated
     ItemNumber() {}
 
-    public ItemNumber(Integer value) {
+    public ItemNumber(String value) {
         this.value = value;
     }
 
-    public Integer value() {
+    public String value() {
         return value;
+    }
+
+    @Override
+    public String toString() {
+        return "ItemNumber{" + "value='" + value + '\'' + '}';
     }
 }

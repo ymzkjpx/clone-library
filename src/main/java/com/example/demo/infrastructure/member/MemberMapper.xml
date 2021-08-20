@@ -20,4 +20,11 @@
                     SELECT kk.会員番号 FROM 会員.会員 kk WHERE 会員番号 = #{memberNumber.value}
                 )
     </select>
+
+    <insert id="insertRelation">
+        INSERT INTO
+            会員.貸出と会員 (会員番号, 貸出番号)
+        VALUES
+            (#{memberNumber.value}, #{loanNumber.value})
+    </insert>
 </mapper>

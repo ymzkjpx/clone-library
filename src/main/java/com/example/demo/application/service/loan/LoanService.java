@@ -20,8 +20,8 @@ public class LoanService {
     /**
      * 本を貸し出す
      */
-    void Loan(LoanRequest loanRequest) {
-        //            loanRepository.loan();
+    public void loan(LoanRequest loanRequest) {
+        loanRepository.loan(loanRequest);
     }
 
     /**

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.infrastructure.item.ItemMapper">
+    <delete id="delete貸出可能">
+        DELETE
+        FROM 蔵書.貸出可能
+        WHERE
+            貸出可能.蔵書番号 = #{itemNumber.value}
+    </delete>
+
+    <insert id="insert貸出中">
+        INSERT INTO
+            蔵書.貸出中(蔵書番号)
+        VALUES
+            (#{itemNumber.value})
+    </insert>
+</mapper>

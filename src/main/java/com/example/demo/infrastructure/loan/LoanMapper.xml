@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.infrastructure.loan.LoanMapper">
+    <select id="nextId" resultType="com.example.demo.domain.model.loan.LoanNumber">
+        SELECT NEXTVAL('貸出.貸出番号') AS "value";
+    </select>
+
+    <insert id="insert貸出履歴">
+        INSERT INTO
+            貸出.貸出履歴 (貸出番号, 蔵書番号, 貸出日)
+        VALUES
+            (#{loanNumber.value}, #{itemNumber.value}, #{loanDate.value})
+    </insert>
+</mapper>

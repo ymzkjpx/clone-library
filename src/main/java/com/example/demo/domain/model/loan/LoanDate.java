@@ -1,9 +1,14 @@
 package com.example.demo.domain.model.loan;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class LoanDate {
+    @NotNull(message = "貸出日を入力してください")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     LocalDate value;
 
     @Deprecated

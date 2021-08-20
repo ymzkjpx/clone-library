@@ -34,9 +34,9 @@ public class LoanScenario {
     /**
      * 本を貸し出す
      */
-    //    public void loan() {
-    //        return loanService.loan();
-    //    }
+    public void loan(LoanRequest loanRequest) {
+        loanService.loan(loanRequest);
+    }
 
     /**
      * 貸出状況を提示する
