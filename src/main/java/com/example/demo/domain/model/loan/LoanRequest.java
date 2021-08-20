@@ -29,7 +29,7 @@ public class LoanRequest {
         return new LoanRequest();
     }
 
-    public MemberNumber getMemberNumber() {
+    public MemberNumber memberNumber() {
         return memberNumber;
     }
 

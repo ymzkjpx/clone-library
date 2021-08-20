@@ -13,4 +13,11 @@
         WHERE
             kk.会員番号 = #{value}
     </select>
+
+    <select id="exists" resultType="boolean">
+        SELECT
+            EXISTS(
+                    SELECT kk.会員番号 FROM 会員.会員 kk WHERE 会員番号 = #{memberNumber.value}
+                )
+    </select>
 </mapper>
