@@ -19,8 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("loan/register")
 public class LoanController {
 
-    @Autowired
-    LoanScenario loanScenario;
+    @Autowired LoanScenario loanScenario;
 
     @GetMapping
     String init(Model model) {
@@ -34,10 +33,13 @@ public class LoanController {
      * 貸出を行う
      */
     @PostMapping
-    String loan(@Validated @ModelAttribute("loanRequest") LoanRequest loanRequest, Model model, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    String loan(@Validated @ModelAttribute("loanRequest")
+                        LoanRequest loanRequest, Model model, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) return "loan/form";
+
         MemberStatus memberStatus = loanScenario.memberStatus(loanRequest);
         loanScenario.loan(loanRequest);
+
         redirectAttributes.addFlashAttribute("loanRequest", loanRequest);
         model.addAttribute("loanRequest", loanRequest);
         return "redirect:/loan/register/completed";
